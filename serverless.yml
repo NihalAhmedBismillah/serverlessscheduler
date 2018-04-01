@@ -1,0 +1,46 @@
+
+service:
+   name: hello_world_nihalahmed
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: us-east-1
+plugins: 
+ - serverless-offline
+ - serverless-offline-scheduler
+functions:
+  user:
+    handler: src/functions/user.handler
+    description: 'insert update delete and get for user profile'
+    events:
+      - http: 
+          path : v1/user/{id}
+          method: GET
+          cors: '*'
+          private: false
+      - http: 
+          path : v1/user
+          method: POST
+          cors: '*'
+          private: false
+      - http: 
+          path : v1/user/{id}
+          method: PUT
+          cors: '*'
+          private: false
+      - http: 
+          path : v1/user/{id}
+          method: DELETE
+          cors: '*'
+          private: false
+  scheduler:
+    handler: /src/functions/userTask.handler
+    description: 'user update every 5 minutes'
+    timeout: 30
+    events: 
+        - schedule:
+            rate: rate(5 minutes)
+            enable: true
+            input:
+                task1: updateUser

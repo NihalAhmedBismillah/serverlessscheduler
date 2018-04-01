@@ -1,0 +1,28 @@
+{
+  "name": "nodeserverless",
+  "version": "1.0.0",
+  "description": "This is the sample node js serverless app with user curd operation",
+  "main": "index.js",
+  "scripts": {
+    "offline": "sls offline start --port 3001",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.0",
+    "aws-sdk": "^2.167.0",
+    "claudia-api-builder": "^2.5.1",
+    "express": "^4.16.2",
+    "joi": "^13.0.2",
+    "lodash": "^4.17.4",
+    "mongodb": "^2.2.33",
+    "serverless-http": "^1.5.2",
+    "serverless-offline": "^3.16.0",
+    "shortid": "^2.2.8"
+  },
+  "devDependencies": {
+    "serverless-offline-scheduler": "^0.3.3"
+  }
+}
